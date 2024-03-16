@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 // asprak MKR
 
+using System.Runtime.CompilerServices;
+
 public class kodebuah
 {
     Dictionary<string, string> kodeBuah = new Dictionary<string, string>()
@@ -33,3 +35,60 @@ public class kodebuah
 
     }
 }
+
+public class posisiKarakterGame
+{
+    public enum posisiState{
+        terbang,
+        jongkok,
+        berdiri
+    }
+
+    public enum tombol
+    {
+        tombolW,
+        tombolX
+    }
+    public class perubahanPosisi
+    {
+        public posisiState
+        awal;
+        public posisiState
+        akhir;
+        public tombol
+        Tombol;
+        
+        public perubahanPosisi(posisiState awal, posisiState akhir, tombol Tombol)
+        {
+            this.awal = awal;
+            this.akhir = akhir;
+            this.Tombol = Tombol;
+        }
+        perubahanPosisi[] listperubahanPosisi = {
+            new perubahanPosisi(posisiState.terbang, posisiState.jongkok, tombol.tombolX),
+            new perubahanPosisi(posisiState.berdiri, posisiState.terbang, tombol.tombolW)
+
+        };
+        
+    }
+
+   
+}
+
+
+class program
+{
+    static void Main(string[] args)
+    {
+        kodebuah kodebuah = new kodebuah();
+        string buah;
+        string kodeBuah;
+
+        buah = "Apel";
+        kodeBuah = kodebuah.getkodeBuah(buah);
+        Console.WriteLine($"Buah {buah} kode buah {kodebuah}");
+
+
+    }
+}
+
